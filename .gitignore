@@ -9,3 +9,7 @@ target
 build
 bin
 .metadata
+/CareIDWeb/careid-web-application/src/main/resources/rebel.xml
+/BusinessServices/careid-identityservice/src/main/resources/rebel.xml
+/BusinessServices/careid-oms-service/src/main/resources/rebel.xml
+/DataMigration/ETL/TRANSFORMATION/POSITION/TransformCalendraMAXPositionUUID.ktr
