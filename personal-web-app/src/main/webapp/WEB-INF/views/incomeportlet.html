@@ -1,0 +1,135 @@
+<html>
+<head>
+    <title>Income Page</title>
+
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/custom/common.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/custom/incomeportlet.js"></script>
+
+
+<link type="text/css" href="resources/css/bootstrap.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/common.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/jquery.dataTables.css" rel="stylesheet"/>
+ <link type="text/css" href="resources/css/jquery-ui.css" rel="stylesheet"/>
+ 
+ <style type="text/css">
+#fromDateDiv {display:inline-block;margin-right:10px; width:150px; background-color:white;} 
+#toDateDiv {display:inline-block; width:150px; background-color:white;}
+
+
+
+.button-group-home {
+  margin-bottom: 20px;
+  *zoom: 1;
+}
+
+
+</style>
+
+{{> portlets/common-js-include-portlet.html}}
+</head>
+<body>
+
+{{> portlets/headerportlet.html}}
+{{>portlets/common/headerNavigationPortlet.html}}
+{{> portlets/incomeexpensenavigationportlet.html}}
+
+	<form class="form-horizontal" name="incomeForm" id="incomeForm">
+		
+		<div class="accordion-section">
+      	<div class="accordion-head"><a href="#" class="on" aria-expanded="true">Enter Income Details</a></div>
+        <div class="accordion-body form-horizontal" style="display:block">
+		<fieldset>
+			<legend class="text-hidden">legend</legend>
+			
+			
+			<div class="control-group">
+			<label class="control-label" for="incomeDateDiv"><span class="text-required">*</span>Select User</label>
+						<div class="controls">
+							<select id="applicationUserId" name="applicationUserId">
+								<option value="0">All</option>
+								<option value="1">Sansthan Yewale</option>
+								<option value="2">Vimal Yewale</option>
+								<option value="3">Sunita Yewale</option>
+								<option value="4">Rahul Yewale</option>
+								<option value="5">Yuvraj Yewale</option>
+								<option value="6">Radha Yewale</option>
+							</select>
+						</div>
+					</div>
+          
+          
+          <div class="control-group">
+			<label class="control-label" for="incomeDateDiv"><span class="text-required">*</span>Income Date</label>
+			<div class="controls">
+					<input class="calender noEnterSubmit"
+						value="" type="text" id="incomeDateDiv" name="incomeDateDiv"
+						size="14" readonly="readonly" />
+			</div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="salaryIncomeAmount">Salary(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="salaryIncomeAmount" name="salaryIncomeAmount" size="14" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="houseRent"><span class="text-required">*</span>House Rent(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="houseRent" id="houseRent" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other1Amount">Other Income1 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other1Amount" name="other1Amount" size="14" />
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Income1 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other1AmountDec" name="other1AmountDec" size="50" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other2Amount">Other Income2 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other2Amount" name="other2Amount" size="14" />
+              
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Income2 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other2AmountDec" name="other2AmountDec" size="50" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other3Amount">Other Income3 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other3Amount" name="other3Amount" size="14" />
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Income3 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other3AmountDec" name="other3AmountDec" size="50" />
+            </div>
+          </div>
+          
+          <br/><br/>
+          <div class="span7 pull-center text-right button-group-home">
+				<button name="cancel_add_income" id="cancel_add_income" type="button" class="btn btn-small btn-danger">Cancel</button>
+        		<img src="resources/images/loading.gif" id="loadingImg" class="loading-indicator" style="display:none" alt="loading" />
+				<button name="" id="btn_income_submit_request" class="btn btn-small btn-primary btn-success">Submit</button>
+		  </div>	
+          
+        </fieldset>
+        
+        	
+        </div>
+       	</div>
+</form>
+
+
+</body>
+</html>

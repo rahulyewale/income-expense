@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Home Page</title>
+
+<script type="text/javascript" charset="utf8"
+	src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="resources/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="resources/js/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="resources/js/custom/logistics.js"></script>
+
+
+<link type="text/css" href="resources/css/bootstrap.css"
+	rel="stylesheet" />
+<link type="text/css" href="resources/css/common.css" rel="stylesheet" />
+<link type="text/css" href="resources/css/jquery.dataTables.css"
+	rel="stylesheet" />
+<link type="text/css" href="resources/css/ColVis.css" rel="stylesheet" />
+<link type="text/css" href="resources/css/jquery-ui.css"
+	rel="stylesheet" />
+
+<style type="text/css">
+#fromDateDiv {
+	display: inline-block;
+	margin-right: 10px;
+	width: 150px;
+	background-color: white;
+}
+
+#toDateDiv {
+	display: inline-block;
+	width: 150px;
+	background-color: white;
+}
+</style>
+
+{{> portlets/common-js-include-portlet.html}}
+</head>
+<body>
+{{> portlets/headerportlet.html}}
+	{{>portlets/common/headerNavigationPortlet.html}}
+
+	<form class="form-horizontal" name="logisticsForm" id="logisticsForm" action="loadcsv"  enctype="multipart/form-data" method="post">
+
+	<div class="data-table-wrap" align="center">
+
+		<button class="btn btn-small btn-primary" name="generateReport"
+			id="generateReport" type="button" onclick="generateReport();">Generate
+			Report123</button>
+
+		<br />
+		<button class="btn btn-small btn-primary" name="loadCsv" id="loadCsv"
+			type="button" onclick="loadCSV();">Load Csv</button>
+
+	</div>
+
+	<div class="photo-selection">
+		<label for="csvFile">Select an csv file from your
+			computer:</label> <input name="csvFile" id="csvFile" type="file">
+		<div class="upload-sepertor">
+			<!-- button class="btn btn-small" id="btn_upload_image"
+				type="button" onclick="loadCSV13();">Upload</button-->
+				<input type="submit" value="Upload" />
+		</div>
+		<div class="error dN">Error Text.</div>
+	</div>
+
+</form>
+	<script type="text/javascript">
+		function generateReport() {
+
+			alert("calleed");
+			$.ajax({
+				type : "POST",
+				url : "generateinvoice",
+				data : '',
+				async : false,
+				success : function(response) {
+				},
+				error : function(jqXHR, textStatus, errorThrown) {
+
+				}
+			});
+
+		}
+		
+		function loadCSV13() {
+			alert("invoked");
+				$.ajax({
+					type : "POST",
+					url : "loadcsv",
+					data : $('#logisticsForm').serialize(),
+					async : false,
+					success : function(response) {
+					},
+					error : function(jqXHR, textStatus, errorThrown) {
+
+					}
+				});
+
+			}
+	</script>
+
+</body>
+</html>

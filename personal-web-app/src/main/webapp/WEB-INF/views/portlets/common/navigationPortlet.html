@@ -1,0 +1,43 @@
+
+<!-- BEGIN Navigation -->
+<script type="text/javascript">
+
+$(document).keydown(
+		function(objEvent) {
+			if ((objEvent.shiftKey && objEvent.keyCode == 9) || objEvent.keyCode == 9) { // tab pressed
+				if (typeof $(".loader") != 'undefined'
+						&& $(".loader").is(':visible')) {
+					objEvent.preventDefault(); // stops its action
+				}
+
+			}
+		});
+var loggedInUserLength;
+var roleCode;
+var orgCode;
+var viewChange;
+$(document).ready(function () {
+	
+});
+
+
+</script>
+<div class="nav-wrapper" id="tab_navigate_Id">
+	<div class="container">
+		<div class="navbar">
+			<div class="navbar-inner">
+				<ul class="nav" aria-label="Main" role="navigation">
+					<li id="link_dashboardId" value="income"><a
+						href="summary">income-expense</a>
+					</li>
+					
+					<li id="link_requestId"><a id="requestLinkId" href="getlogistics">logistics</a>
+					</li>
+				</ul>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+<!-- End Navigation -->

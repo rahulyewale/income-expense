@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Login Page</title>
+
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-ui.js"></script>
+
+<link type="text/css" href="resources/css/bootstrap.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/common.css" rel="stylesheet"/>
+ <link type="text/css" href="resources/css/jquery-ui.css" rel="stylesheet"/> 
+
+</head>
+<body>
+{{> portlets/headerportlet.html}}
+	<div class="sg-section">
+              
+        <form class="form-horizontal" name="" id="" action="getnavigation"  method="post">
+        
+        
+        <div class="accordion-section">
+        <div class="accordion-body form-horizontal" style="display:block">
+		<fieldset>
+			<legend class="text-hidden">legend</legend>
+			
+                
+          
+          <div class="control-group">
+              <label class="control-label" for="loginId">Login Id:</label>
+              <div class="controls">
+                <input type="text" name="loginId" id="loginId" placeholder="" size="35" maxlength="35">
+              </div>
+            </div>
+            
+              
+            <div class="control-group">
+              <label class="control-label" for="password">Password:</label>
+              <div class="controls">
+                <input type="text" name="password" id="password" placeholder="" size="35" maxlength="35">
+              </div>
+            </div>
+            
+            <input type="hidden" name="applicationUserId" id="applicationUserId" value="1">
+            
+            
+            <br/><br/>
+          <div class="span7 pull-center text-right button-group-home">
+				<button name="login" id="login" type="" class="btn btn-small btn-success">Login</button>
+		  </div>	
+         
+          
+        </fieldset>
+        
+        	
+        </div>
+       	</div>
+        
+		  
+        </form>
+      </div>
+
+</body>
+</html>

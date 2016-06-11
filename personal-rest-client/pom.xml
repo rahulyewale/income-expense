@@ -1,0 +1,75 @@
+<!--
+  <copyright file=pom.xml company="Department of Health">
+  Copyright 2013 Department of Health
+  All rights reserved
+  
+  NOTICE:  All information contained herein is, and remains
+  the property of the Department of Health.
+  The intellectual and technical concepts contained
+  herein are proprietary to Health & Social Care Information Centre acting on behalf of the Department of Health.
+  
+  Dissemination of this information or reproduction of this material
+  is strictly forbidden unless prior written permission is obtained
+  from Health & Social Care Information Centre.
+  </copyright>
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>personal.rest.client</groupId>
+	<artifactId>personal-rest-client</artifactId>
+	<version>1.0</version>
+	
+	<properties>
+        <java.version>1.6</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+	
+	
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>4.1.1.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>com.personal.common</groupId>
+			<artifactId>personal-common</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+	
+	<build>
+		<plugins>
+		
+		<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.5.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+            
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<includes>
+						<include>**/com/personal/*/*/**</include>
+					</includes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,131 @@
+<html>
+<head>
+    <title>Income Expense Summary</title>
+
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/custom/incomeexpensesummary.js"></script>
+
+
+<link type="text/css" href="resources/css/bootstrap.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/common.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/jquery.dataTables.css" rel="stylesheet"/>
+ <link type="text/css" href="resources/css/jquery-ui.css" rel="stylesheet"/>
+ 
+ <style type="text/css">
+#fromDateDiv {display:inline-block;margin-right:10px; width:150px; background-color:white;} 
+#toDateDiv {display:inline-block; width:150px; background-color:white;}
+
+</style>
+
+{{> portlets/common-js-include-portlet.html}}
+</head>
+<body>
+{{> portlets/headerportlet.html}}
+{{>portlets/common/headerNavigationPortlet.html}}
+{{> portlets/incomeexpensenavigationportlet.html}}
+
+
+<form class="form-horizontal" name="incomeExpenseSummaryForm" id="incomeExpenseSummaryForm" action="summary"  method="post">
+
+<div align="center">
+<h6>Select Date Range for Income-Expense Summary</h6>
+   <p>
+   <div>
+   
+   <div id="fromDateDiv">
+   		<label>From:<input class="calender noEnterSubmit" value="{{incomeExpenseSummaryResponse.startDate}}"  type="text" id="fromDate" name="startDate" size="14" readonly="readonly"/></label>
+	</div>
+	<div id="toDateDiv">	
+		<label>To:<input class="calender noEnterSubmit" value="{{incomeExpenseSummaryResponse.endDate}}"  type="text" id="toDate" name="endDate" size="14" readonly="readonly"/></label>
+	</div>
+	
+	<div id="selectUserDiv">	
+		<label>Select User:
+		
+		<select id="applicationUserId" name="applicationUserId">
+								<option value="0">All</option>
+								<option value="1">Sansthan Yewale</option>
+								<option value="2">Vimal Yewale</option>
+								<option value="3">Sunita Yewale</option>
+								<option value="4">Rahul Yewale</option>
+								<option value="5">Yuvraj Yewale</option>
+								<option value="6">Radha Yewale</option>
+							</select>
+		</label>
+	</div>
+	
+	
+	<div id="submitButtonDiv">
+		 <button id="incomeExpenseSummaryFormSubmit" class="btn btn-small btn-primary btn-success">Submit</button>
+	
+   </p>
+</div>
+</form>
+
+	<div class="data-table-wrap" align="center">
+ <table>
+<tr>
+
+
+<td>
+	<h1 class="badge badge-exact">Income</h1>
+	<table id="income_tbl" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr><th>Income Type</th> <th>Price(Rs.)</th></tr>
+    </thead>
+    
+	    <tbody>
+			{{#incomeDetails.incomeList}}
+				<tr>
+					<td>{{incomeTypeCode}}</td>
+					<td>{{incomeAmount}}</td>
+				</tr>
+			{{/incomeDetails.incomeList}}
+		</tbody>
+    
+         
+  </table>
+  <label><font color="red" size="3">Total Income(Rs.):</font> <input readonly="readonly" type="text" value="{{incomeDetails.totalIncome}}"></label>
+  
+</td>
+
+<td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/><td/>
+
+<td>
+
+	<h1 class="badge badge-exact">Expense</h1>
+	<table id="expense_tbl" class="display" cellspacing="0" width="100%">
+    <thead>
+      <tr> <th>Expense Type</th> <th>Price(Rs.)</th>  </tr>
+    </thead>
+    
+	    <tbody>
+			{{#expenseDetails.expenseList}}
+				<tr>
+					<td>{{expenseTypeCode}}</td>
+					<td>{{expenseAmount}}</td>
+				</tr>
+			{{/expenseDetails.expenseList}}
+		</tbody>
+		
+		
+  </table>
+<label><font color="red" size="3">Total Expense(Rs.):</font> <input readonly="readonly" type="text" value="{{expenseDetails.totalExpense}}"></label>
+</td>
+
+</tr>
+</table>
+
+		<div align="center" id="balanceDiv">
+
+			<label><font color="blue" size="3">Balance(Rs.):</font> <input
+				readonly="readonly" type="text"
+				value="{{incomeExpenseSummaryResponse.balance}}"></label>
+		</div>
+
+	</div>
+
+</body>
+</html>

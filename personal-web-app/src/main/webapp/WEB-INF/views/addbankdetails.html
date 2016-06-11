@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-ui.js"></script>
+
+
+<link type="text/css" href="resources/css/bootstrap.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/common.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/jquery.dataTables.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/ColVis.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/jquery-ui.css" rel="stylesheet"/>
+ 
+ <style type="text/css">
+#fromDateDiv {display:inline-block;margin-right:10px; width:150px; background-color:white;} 
+#toDateDiv {display:inline-block; width:150px; background-color:white;}
+
+</style>
+
+{{> portlets/common-js-include-portlet.html}}
+</head>
+
+<body>
+<!-- BEGIN header -->
+<div class="header"> 
+  <div class="container"> <a href="#" class="brand">Home Application	</a>
+    <div class="user-status pull-right"> Hi, <strong>Rahul Yewale</strong> |<!-- BEGIN Select-role dropdown	 --><div class="select-role-wrap"><a title="Rahul Yewale" href="" id="userRole" class="user-role"></a>
+</div>
+</div>
+<!-- END Select-role dropdown -->	   
+</div>
+</div>
+<!-- END header --> 
+
+
+<!-- BEGIN page content================================================== -->
+
+<div class="container content">
+  <div class="row">
+    <h1 class="span8">Add Bank Details</h1>
+    <p class="form-tips"><span class="text-required">*</span>Indicates mandatory field.<br /></p>
+  </div>
+  
+  <div class="row">
+    <div class="span16">
+      <form class="form-horizontal" name="add_bank_details" id="add_bank_details" method="post" action="submitbankdetails">
+        <fieldset>
+          <h2>Bank Information</h2>
+          <div class="control-group">
+            <label class="control-label" for="bankMasterId">Bank Name:</label>
+            <div class="controls">
+              <select id="bankName" name="bankMasterId">
+                <option value="0">Select...</option>
+                <option value="1">HDFC</option>
+                <option value="2">SBI</option>
+                <option value="3">BOI</option>
+                <option value="4">ICICI</option>
+               </select>
+            </div>
+          </div>
+          
+            <div class="control-group">
+            <label class="control-label" for="ifscCode"><span class="text-required">*</span>IFSC Code:</label>
+            <div class="controls">
+              <input type="text" name="ifscCode" id="ifscCode" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          
+            <div class="control-group">
+            <label class="control-label" for="micrCode">MICR Code:</label>
+            <div class="controls">
+              <input type="text" name="micrCode" id="micrCode" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          
+          
+        </fieldset>
+        
+        <fieldset>
+          <h2>Netbanking Details</h2>
+         
+          <div class="control-group">
+            <label class="control-label" for="netbankingCustomerId"><span class="text-required">*</span>Customer id:</label>
+            <div class="controls">
+              <input type="text" name="netbankingCustomerId" id="netbankingCustomerId" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="netbankingLoginPassword">Netbanking password:</label>
+            <div class="controls">
+              <input type="text" name="netbankingLoginPassword" id="netbankingLoginPassword" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="netbankingTransactionPassword">Netbanking Transaction password:</label>
+            <div class="controls">
+              <input type="text" name="netbankingTransactionPassword" id="netbankingTransactionPassword" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+           <div class="control-group">
+            <label class="control-label" for="netbankingProfilePassword">Netbanking Profile password:</label>
+            <div class="controls">
+              <input type="text" name="netbankingProfilePassword" id="netbankingProfilePassword" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+        </fieldset>
+        
+          <fieldset>
+          <h2>Account Details</h2>
+         
+          <div class="control-group">
+            <label class="control-label" for="savingsAccountNumber">Savings Account:</label>
+            <div class="controls">
+              <input type="text" name="savingsAccountNumber" id="savingsAccountNumber" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="currentAccountNumber">Current Account:</label>
+            <div class="controls">
+              <input type="text" name="currentAccountNumber" id="currentAccountNumber" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="odAccountNumber">Overdraft Account:</label>
+            <div class="controls">
+              <input type="text" name="odAccountNumber" id="odAccountNumber" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+ 
+        </fieldset>
+                    
+          <fieldset>
+          <h2>Debit Card Details</h2>
+         
+          <div class="control-group">
+            <label class="control-label" for="debitCardNo">Debit card no:</label>
+            <div class="controls">
+              <input type="text" name="debitCardNo" id="debitCardNo" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="debitCardCcv">Debit Card CCV:</label>
+            <div class="controls">
+              <input type="text" name="debitCardCcv" id="debitCardCcv" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="debitCardValidityFrom">Validity Period:</label>
+            <div class="controls">
+              <input type="text" name="debitCardValidityFrom" id="debitCardValidityFrom" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+           <div class="control-group">
+            <label class="control-label" for="deditCardPin">Debit Card pin:</label>
+            <div class="controls">
+              <input type="text" name="deditCardPin" id="deditCardPin" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+ 
+        </fieldset>
+        
+        <fieldset>
+          <h2>Credit Card Details</h2>
+         
+          <div class="control-group">
+            <label class="control-label" for="creditCardNo">Credit card no:</label>
+            <div class="controls">
+              <input type="text" name="creditCardNo" id="creditCardNo" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="creditCardCcv">Credit Card CCV:</label>
+            <div class="controls">
+              <input type="text" name="creditCardCcv" id="creditCardCcv" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="creditCardValidityFrom">Validity Period:</label>
+            <div class="controls">
+              <input type="text" name="creditCardValidityFrom" id="creditCardValidityFrom" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+           <div class="control-group">
+            <label class="control-label" for="creditCardPin">Credit Card pin:</label>
+            <div class="controls">
+              <input type="text" name="creditCardPin" id="creditCardPin" placeholder="" size="35" maxlength="35" />
+            </div>
+          </div>
+ 
+        </fieldset>
+        
+        <div class="row button-row-create-user">
+                    <div class="span3 text-right pull-right"> <img src="../assets/img/loading.gif" class="loading-indicator" style="display:none" alt="loading" />
+            <button   class="btn btn-primary btn-large"  type="submit" id="btn_submituserinfo" name="btn_submituserinfo">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- END page content================================================== --> 
+<!-- BEGIN Footer ================================================== -->
+<div class="footer">
+  
+  <div class="footer-copyright">
+    <div class="container">
+      <div class="copyright-text">Copyright &copy; 2015 Rahul Y : Home Application.  All rights reserved</div>
+    </div>
+  </div>
+</div>
+
+<!-- END Footer ================================================== --> 
+
+
+<!-- Begin Model Message Submit request================================================== -->
+<div id="msgSubmitRequest" class="modal model-success hide fade" data-backdrop="static" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <h3 >Success: Your request "00001" has been successfully submitted.</h3>
+  </div>
+  <div class="modal-body">
+    <h4>Your next step</h4>
+    <ul>
+      <li><a href="#">View Request</a></li>
+      <li><a href="#">Create another applicant identity</a></li>
+      <li><a href="#">Go to dashboard</a></li>
+    </ul>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
+  </div>
+</div>
+<!-- END Model Model Message Submit request================================================== --> 
+
+
+
+
+<!-- Begin Model remove photo ================================================== -->
+<div id="msgRemovePhoto" class="modal  hide fade" data-backdrop="static" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&nbsp;</button>
+    <h3>Remove Photo</h3>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure you want to remove the photo?</p>
+  </div>
+  <div class="modal-footer">
+    <div class="row">
+      <div class="span3 text-left">
+        <button class="btn " data-dismiss="modal" aria-hidden="true" >No</button>
+      </div>
+      <div class="span3 pull-right"><img style="display: inline-block;" alt="Loading" class="loading-indicator" src="../assets/img/loading.gif">
+        <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END Model remove photo ================================================== --> 
+
+
+
+
+
+<!-- BEGIN javascript ================================================== --> 
+<script src="../assets/plugins/jquery-1.10.2.min.js"></script> 
+<script src="../assets/plugins/bootstrap.js"></script> 
+<!--<script src="assets/plugins/jquery.validate.1.9.0.min.js"></script> --> 
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js" ></script> 
+<script src="../assets/plugins/jquery.tipsy.js"></script> 
+<script type="text/javascript" src="resources/js/portlets-js/addbankdetails.js"></script>
+<script>
+
+
+
+SubmittingForm = function () {
+    $('#msgSubmitRequest').modal('show');
+};
+
+function resetForms() {
+    document.forms['create_user'].reset(); // reset form on refresh
+    $("#applicantTitle").focus(); // focus first element of form on pageload/refresh
+}
+
+$(document).ready(function () {
+
+
+
+ resetForms(); //reset from on page refresh
+/*
+    $("#btn_savedraft").click(function () {
+        $('#msgSaveRequest').modal('show');
+    })*/
+
+    $("#create_user").validate({
+        onfocusout: function (element) {
+            $(element).valid();
+        },
+
+        submitHandler: function (form) {
+            SubmittingForm();
+        },
+		onkeyup: false,
+        rules: {
+			applicantTitle: {
+				required:false,
+				},
+            applicantGivenName: {
+                customtextvalidation: true,
+				 required: true
+            },
+			
+			
+			applicantMiddleNames:{
+				required:true,
+				},
+            applicantFamilyName: {
+                required: true,
+            },
+			applicantPreferredName: {
+                required: false,
+            },			
+			applicantDayOfBirth: { 
+				required: true
+				},
+			applicantMonthOfBirth: { 
+				selectcheckmonth: true 
+				},
+			applicantYearOfBirth: { 
+				required: true 
+				},
+			applicantNINumber: {
+				required: true,
+				},
+			applicantContactNumber: {
+				required: false,
+				},
+			applicantEmailAddress: {
+				required: false,
+				},
+			worklist: {
+				required: false,
+				},
+			applicantNotes: {
+				required: false,
+				}
+
+	 },      
+			groups: {
+					DateofBirth: "applicantDayOfBirth applicantMonthOfBirth applicantYearOfBirth"
+				},
+				errorPlacement: function(error, element) {
+				   if (element.attr("name") == "applicantDayOfBirth" || element.attr("name") == "applicantMonthOfBirth" || element.attr("name") == "applicantYearOfBirth") 
+					error.insertAfter("#applicantYearOfBirth");
+				   else 
+					error.insertAfter(element);
+					
+				}
+
+
+ 
+    });
+
+ 	    jQuery.validator.addMethod("customtextvalidation",
+        function (value, element) {
+            return /^[-\sa-zA-Z]+$/.test(value);
+        },
+        "Sorry, no numbers and special characters allowed"
+    );
+
+
+
+// remove photo  model window
+			$("#btn_RemovePhoto").click(function(){
+		$('#msgRemovePhoto').modal('show');
+		return false;
+		});
+
+// remove photo  model window
+
+// month is required
+   jQuery.validator.addMethod('selectcheckmonth', function (value) {
+        return (value != '0');
+    }, "This field is mandatory");	
+	
+
+jQuery.extend(jQuery.validator.messages, {
+    required: "This field is mandatory.",
+
+});
+
+//disable submit button till user fills required fields
+$('#create_user').bind('change keyup', function() {
+    if($(this).validate().checkForm()) {
+        $('#btn_submituserinfo').attr('disabled', false);
+    } else {
+        $('#btn_submituserinfo').attr('disabled', true);
+    }
+});
+
+
+    /*BEGIN form tooltips*/
+
+    $('#applicantNINumber').tipsy({
+        trigger: 'focus',
+        gravity: 'w'
+    }); // NI Number
+
+    $('#applicantPassportNumber').tipsy({
+        trigger: 'focus',
+        gravity: 'w'
+    }); // Passport Number
+
+    $('#applicantDrivingLicenseNumber').tipsy({
+        trigger: 'focus',
+        gravity: 'w'
+    }); // Driving Licence 
+
+    $('#applicantEmailAddress').tipsy({
+        trigger: 'focus',
+        gravity: 'w'
+    }); // Email
+
+    $('#applicantContactNumber').tipsy({
+        trigger: 'focus',
+        gravity: 'w'
+    }); // Contact No
+
+
+
+
+// Date of birth common tooltip
+var fromdate = "DD-Mon-YYYY" ;
+var todate =  "DD-Mon-YYYY" ;
+$("#fromDate").text(fromdate);
+$("#toDate").text(todate);
+$('#applicantDayOfBirth,#applicantMonthOfBirth,#applicantYearOfBirth').bind('focus',
+    function () {
+
+        var pTop = $("#applicantDayOfBirth").offset().top;
+        var pLeft = $("#applicantDayOfBirth").offset().left;
+        $('#dateHelpTip').show();
+        $('#dateHelpTip').css('top', pTop)
+        $('#dateHelpTip').css('left', pLeft + 210)
+
+
+    }).bind('blur',
+    function () {
+        $('#dateHelpTip').hide();
+    });
+
+
+
+    /*END form tooltips*/
+
+    /*BEGIN textarea char count for NOTES*/
+    $('#applicantNotes').keyup(function () {
+        var max = 240;
+        var len = $(this).val().length;
+
+        if (len == max - 1) {
+            $('#charNum').text('1 character left');
+        } else {
+            var char = max - len;
+            $('#charNum').text(char + ' characters left');
+        }
+    });
+
+    // BEGIN Fixing maxlenght in ie 8/9
+    // Get all textareas that have a "maxlength" property. :
+    $('textarea[maxlength]').on('keyup blur', function () {
+        // Store the maxlength and value of the field.
+        var maxlength = $(this).attr('maxlength');
+        var val = $(this).val();
+
+        // Trim the field if it has content over the maxlength.
+        if (val.length > maxlength) {
+            $(this).val(val.slice(0, maxlength));
+        }
+    });
+
+    // END Fixing maxlenght in ie 8/9
+
+// prevent more than one carriage return  typed  in textarea
+var last = false;
+
+$('textarea[maxlength]').on('keydown',  function(e) {
+    var code = (e.keyCode ? e.keyCode : e.which);
+    if (code==13 && !e.shiftKey) {
+        if (last) { e.preventDefault(); }
+        last=true;
+    }else{
+        last=false;
+    }
+});
+
+
+
+$('<ol></ol>').appendTo('.notes-display').hide();
+ // Begin post notes
+
+    $("#btn_postnote").click(function (e) {
+
+        var postText = $("#applicantNotes").val();
+        var userName = "John Smith";
+        var noteStatus = "Pending submission";
+        // post date 
+        var d = new Date();
+        var day = d.getDate();
+        var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+        var nowHour = d.getHours();
+        var nowMinutes = d.getMinutes();
+        var nowTime = nowHour + ':' + nowMinutes;
+
+        var dateTime = (('' + day).length < 2 ? '0' : '') + day + '-' +
+            monthNames[d.getMonth()] + '-' +
+            d.getFullYear() + ' at ' +
+            nowTime;
+
+
+        if (postText !== "") {
+
+            $(".notes-display ol").show().prepend('<li><div class="note-title" ><a href="#">' + userName + '</a> | <span class="note-date" >' + dateTime + '</span></div><div class="note-status" >' + noteStatus + '</div><div class="note-text" >' + postText + '</div></li>')
+            //24-Mar-2013 at 12:30
+
+
+            $("#applicantNotes").val('');
+        } else {
+
+            $("#applicantNotes").focus();
+        }
+
+        var notesCount = $('.notes-display ol li').length;
+        $("#addedNotes").text(notesCount);
+		var noteLeft = 20 - notesCount;
+       
+
+	
+        if (notesCount == 20) {
+            $("#applicantNotes").val('As the maximum number’s been reached, you can’t enter any further notes.');
+            $("#applicantNotes,#btn_postnote").attr("disabled", "disabled");
+            $("#charNum").hide();
+			 $("#remainingNotes").text(0 +" notes left");
+        }
+		else if (notesCount == 19)
+		{ $("#remainingNotes").text(1 +" note left");}
+		else {
+			 $("#remainingNotes").text(noteLeft+" notes left");
+			}
+    });
+
+
+    // End Post Notes
+
+
+
+
+});
+//END document ready
+
+
+
+</script> 
+
+<!-- END javascript ================================================== -->
+
+</body>
+</html>

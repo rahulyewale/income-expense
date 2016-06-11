@@ -1,0 +1,184 @@
+<html>
+<head>
+    <title>Expense Page</title>
+
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/custom/common.js"></script>
+<script type="text/javascript" charset="utf8" src="resources/js/custom/expenseportlet.js"></script>
+
+
+<link type="text/css" href="resources/css/bootstrap.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/common.css" rel="stylesheet"/>
+<link type="text/css" href="resources/css/jquery.dataTables.css" rel="stylesheet"/>
+ <link type="text/css" href="resources/css/jquery-ui.css" rel="stylesheet"/>
+ 
+ <style type="text/css">
+#fromDateDiv {display:inline-block;margin-right:10px; width:150px; background-color:white;} 
+#toDateDiv {display:inline-block; width:150px; background-color:white;}
+
+</style>
+
+{{> portlets/common-js-include-portlet.html}}
+</head>
+<body>
+
+{{> portlets/headerportlet.html}}
+{{>portlets/common/headerNavigationPortlet.html}}
+{{> portlets/incomeexpensenavigationportlet.html}}
+
+	<form class="form-horizontal" name="expenseForm" id="expenseForm"
+		action="" method="">
+		
+		<div class="accordion-section">
+      	<div class="accordion-head"><a href="#" class="on" aria-expanded="true">Enter Expense Details</a></div>
+        <div class="accordion-body form-horizontal" style="display:block">
+		<fieldset>
+			<legend class="text-hidden">legend</legend>
+			
+			
+			<div class="control-group">
+			<label class="control-label" for="incomeDateDiv"><span class="text-required">*</span>Select User</label>
+						<div class="controls">
+							<select id="applicationUserId" name="applicationUserId">
+								<option value="0">All</option>
+								<option value="1">Sansthan Yewale</option>
+								<option value="2">Vimal Yewale</option>
+								<option value="3">Sunita Yewale</option>
+								<option value="4">Rahul Yewale</option>
+								<option value="5">Yuvraj Yewale</option>
+								<option value="6">Radha Yewale</option>
+							</select>
+						</div>
+					</div>
+			
+			
+          <div class="control-group">
+			<label class="control-label" for="expenseDateDiv"><span class="text-required">*</span>Expense Date</label>
+			<div class="controls">
+					<input class="calender noEnterSubmit"
+						value="" type="text" id="expenseDateDiv" name="expenseDateDiv"
+						size="14" readonly="readonly" />
+			</div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="transportExpenseAmount">Transport(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="transportExpenseAmount" name="transportExpenseAmount" size="14" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="fuelExpenseAmount"><span class="text-required">*</span>Fuel(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="fuelExpenseAmount" id="fuelExpenseAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="houseMaintainanceAmount"><span class="text-required">*</span>House Maintainance(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="houseMaintainanceAmount" id="houseMaintainanceAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+           <div class="control-group">
+            <label class="control-label" for="vehicleMaintainanceAmount"><span class="text-required">*</span>Vehicle Maintainance(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="vehicleMaintainanceAmount" id="vehicleMaintainanceAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="homeLoanEMIAmount"><span class="text-required">*</span>Home Loan EMI(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="homeLoanEMIAmount" id="homeLoanEMIAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+           <div class="control-group">
+            <label class="control-label" for="mobileRechargeAmount"><span class="text-required">*</span>Mobile Recharge(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="mobileRechargeAmount" id="mobileRechargeAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="lightBillAmount"><span class="text-required">*</span>Light Bill(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="lightBillAmount" id="lightBillAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+           <div class="control-group">
+            <label class="control-label" for="internetRechargeAmount"><span class="text-required">*</span>Internet Recharge(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="internetRechargeAmount" id="internetRechargeAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="tataSkyRechargeAmount"><span class="text-required">*</span>Tata Sky Recharge(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="tataSkyRechargeAmount" id="tataSkyRechargeAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="dailyNeedsAmount"><span class="text-required">*</span>Daily Needs(Rs.)</label>
+            <div class="controls">
+              <input type="text" name="dailyNeedsAmount" id="dailyNeedsAmount" class="" value="" placeholder="" size="14" maxlength="14" aria-required="true" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other1Amount">Other Expense1 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other1Amount" name="other1Amount" size="14" />
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Expense1 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other1AmountDec" name="other1AmountDec" size="50" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other2Amount">Other Expense2 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other2Amount" name="other2Amount" size="14" />
+              
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Expense2 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other2AmountDec" name="other2AmountDec" size="50" />
+            </div>
+          </div>
+          
+          <div class="control-group">
+            <label class="control-label" for="other3Amount">Other Expense3 Amount(Rs.)</label>
+            <div class="controls">
+              <input value="" type="text" id="other3Amount" name="other3Amount" size="14" />
+            </div>
+            <label class="control-label" for="other3AmountDec">Other Expense3 Description</label>
+            <div class="controls">
+              <input value="" type="text" id="other3AmountDec" name="other3AmountDec" size="50" />
+            </div>
+          </div>
+          <br/><br/>	
+          <div class="span7 pull-center text-right">
+				<button name=cancel_add_expense id="cancel_add_expense" type="button" class="btn btn-small btn-danger">Cancel</button>
+        		<img src="resources/img/loading.gif" id="loadingImg" class="loading-indicator" style="display:none" alt="loading" />
+				<button name="btn_expense_submit_request" id="btn_expense_submit_request" class="btn btn-small btn-primary btn-success">Submit</button>
+		  </div>	
+          
+        </fieldset>
+        	
+        </div>
+       	</div>
+       	
+</form>
+	
+
+
+</body>
+</html>

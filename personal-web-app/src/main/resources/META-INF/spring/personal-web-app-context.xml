@@ -1,0 +1,60 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:util="http://www.springframework.org/schema/util"
+  xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/util
+		http://www.springframework.org/schema/util/spring-util-3.0.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+        
+        
+   <bean id="webServicesPropertiesPlacholder"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"
+		lazy-init="false">
+		<property name="locations">
+			<list>
+				<!-- value>file:${OPENSHIFT_DATA_DIR}/services.properties</value> -->
+				<value>file:/home/personal/config/services.properties</value>
+			</list>
+		</property>
+	</bean>
+    <bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<util:list id="beanList">
+				<ref bean="jsonMessageConverter" />
+			</util:list>
+		</property>
+	</bean>
+
+	<!-- Converts JSON to POJO and vice versa -->
+	<bean id="jsonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter" />
+		
+  
+  <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+  
+	<bean name="restServiceClient" class="com.personal.webapp.client.RestServiceClient">
+		<property name="restTemplate" ref="restServiceTemplate"></property>		
+	</bean>
+	
+	<bean id="restServiceTemplate" name="restServiceTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="messageConverters">
+			<list>
+				<ref bean="jsonMessageConverter" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="restServiceInvoker"
+		class="com.personal.rest.client.RestServiceInvoker">
+		<property name="restTemplate" ref="restServiceTemplate"></property>
+		<property name="restServiceURL" value="${personal.income.service.url}" />
+	</bean>
+	
+</beans>
