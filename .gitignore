@@ -1,0 +1,11 @@
+/build
+/target
+/bin
+
+.settings
+.project
+.classpath
+target
+build
+bin
+.metadata
