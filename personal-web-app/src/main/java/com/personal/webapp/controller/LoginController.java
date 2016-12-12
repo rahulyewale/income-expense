@@ -23,6 +23,7 @@ public class LoginController
 		//ModelAndView modelAndView = new ModelAndView("logistics");
 		//return modelAndView;
 		
-		return "redirect:/summary";
+		//return "redirect:/summary";
+		return "redirect:/scanned";
 	}
 }

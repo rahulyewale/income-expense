@@ -36,6 +36,7 @@ public final class CommonConstants
 		public static final String LOAD_CSV = "/loadcsv";
 		public static final String DISPLAY_ADD_INCOME = "/displayaddincome";
 		public static final String DISPLAY_ADD_EXPENSE = "/displayaddexpense";
+		public static final String SCANNED = "/scanned";
 		
 		
 		

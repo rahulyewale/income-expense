@@ -19,6 +19,7 @@ public final class WebConstants
 		public static final String ADD_BANK_DETAILS = "addbankdetails";
 		public static final String INCOME_PORTLET = "incomeportlet";
 		public static final String EXPENSE_PORTLET = "expenseportlet";
+		public static final String SCANNED_DOCUMENT = "scanned";
 	}
 
 }
